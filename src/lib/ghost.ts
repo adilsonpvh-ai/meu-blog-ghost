@@ -23,3 +23,20 @@ export async function getPosts() {
     return [];
   }
 }
+
+export async function getPostBySlug(slug: string) {
+  if (!process.env.GHOST_URL || !process.env.GHOST_KEY) {
+    return null;
+  }
+
+  try {
+    return await api.posts.read({
+      slug
+    }, {
+      include: ['tags', 'authors']
+    });
+  } catch (err) {
+    console.error(`Erro ao buscar o post ${slug}:`, err);
+    return null;
+  }
+}
