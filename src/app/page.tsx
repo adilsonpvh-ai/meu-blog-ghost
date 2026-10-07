@@ -31,7 +31,7 @@ export default async function Home() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.map((post: { id: string, title: string, slug: string, excerpt?: string, published_at: string, tags?: { name: string }[], authors?: { name: string }[] }) => (
+            {posts.map((post: any) => (
               <article 
                 key={post.id} 
                 className="group relative flex flex-col items-start justify-between rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:bg-white/10 hover:border-indigo-500/50 hover:-translate-y-1"
